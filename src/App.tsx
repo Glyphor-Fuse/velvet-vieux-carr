@@ -1,25 +1,31 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Routes, Route as RRDRoute } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { FlavorParade } from "@/components/FlavorParade";
+import { IronworkHeritage } from "@/components/IronworkHeritage";
+import { MenuHighlights } from "@/components/MenuHighlights";
+import { LocationFooter } from "@/components/LocationFooter";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Routes>
-        <RRDRoute path="/" element={<Index />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <RRDRoute path="*" element={<NotFound />} />
-      </Routes>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <main className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground">
+          <Navbar />
+          <Hero />
+          <FlavorParade />
+          <IronworkHeritage />
+          <MenuHighlights />
+          <LocationFooter />
+        </main>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
