@@ -6,8 +6,15 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
 
+interface Flavor {
+  name: string;
+  description: string;
+  image: string;
+  ingredients: string[];
+}
+
 // --- Custom 3D Tilt Card Component ---
-const FlavorFloat = ({ flavor, index }: { flavor: any; index: number }) => {
+const FlavorFloat = ({ flavor, index }: { flavor: Flavor; index: number }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
